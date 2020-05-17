@@ -1,0 +1,31 @@
+
+#include <string.h>
+#include <stdio.h>
+
+
+char* mix(char first[],char second[],char *out) {
+    char *longer, *shorter;int i = 0;
+    if (strlen(first) > strlen(second)) {
+        longer = first;
+        shorter = second;
+    } else {
+        longer = second;
+        shorter = first;
+    }
+    for (int n = 0; shorter[i] != '\n';n+=2,i++) {
+        out[n] = first[i];
+        out[n+1] = second[i];
+    } i=i*2;
+    while (longer[i] != '\n') {
+        out[i] =longer[i];
+        i++;
+    }
+    return out;
+}
+
+int main(){
+    char getstring1[32], getstring2[32],output[63];
+    fgets(getstring1, 32, stdin);
+    fgets(getstring2, 32, stdin);
+    printf("%s",mix(getstring1,getstring2,output));
+}

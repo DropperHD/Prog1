@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc ,char* argv[]) {
+    FILE * pw = NULL;
+    FILE * otp = NULL;
+    FILE * dest = NULL;
+    if(argc < 2 || argc > 4){
+        printf("Falsche Eingabe!");
+        exit(0);
+    }
+    pw = fopen(argv[1],"rb");
+    otp = fopen(argv[2],"rb");
+
+    if(argv[3] != NULL) {
+        dest = fopen(argv[3], "wb");
+    } else {
+        dest = fopen(strcat(argv[1],".cip"), "wb");
+    }
+
+    if(pw == NULL || otp == NULL){
+        printf("Falsche Eingabe");
+        exit(0);
+    }
+    int a,b;
+    while(1){
+        a = fgetc(pw);
+        if(a == EOF){
+            break;
+        }
+        b = fgetc(otp);
+        if(b == EOF){
+            rewind(otp);
+        }
+        fputc(a^b,dest);
+    }
+    _fcloseall();
+    return 0;
+}
+
