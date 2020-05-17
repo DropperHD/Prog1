@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int eingabe = 1;
+int ausgabe = 0;
+
+int main() {
+    setvbuf(stdout, NULL, _IONBF, 0);
+    while(eingabe == 1) {
+        printf("Bitte Zahl Eingeben!\n");
+        scanf("%d", &eingabe);
+        if(eingabe == 0){
+            return 0;
+        }
+        while (eingabe > 0) {
+            ausgabe = ausgabe + eingabe % 10;
+            eingabe = eingabe / 10;
+        }
+        printf("%d\n", ausgabe);
+        ausgabe = 0;
+        eingabe = 1;
+    }
+    return 0;
+}
