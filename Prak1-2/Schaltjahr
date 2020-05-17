@@ -1,0 +1,67 @@
+//Created on 25.10.2019 Author: Name: Praktika2.1
+#include <stdio.h>
+#include<time.h>
+
+int schaltjahrA (j) {
+    if (j % 4 == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+    int schaltjahrB (j) {
+        if (j % 100 == 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+        int schaltjahrC (j) {
+            if (j % 400 == 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        int schaltjahr1(){
+                int j=1;
+                int counter = 0;
+                while (j <= 1000000000) {
+                    int A = schaltjahrA(j);
+                    int B = schaltjahrB(j);
+                    int C = schaltjahrC(j);
+                    if (A&&!(B&&!C)) {
+                        counter += 1;
+                        j += 1;
+                    } else { j += 1; }
+                }
+                printf("%d\n",counter);
+                }
+            int schaltjahr2(){
+                int j=1;
+                int counter = 0;
+                while (j <= 1000000000) {
+                    int A = schaltjahrA(j);
+                    int B = schaltjahrB(j);
+                    int C = schaltjahrC(j);
+                    if ((C	||	!B)	&&	A) {
+                        counter += 1;
+                        j += 1;
+                    } else { j += 1; }
+                }
+                printf("%d\n",counter);
+                }
+
+            int main() {
+                time_t startzeit,endzeit;
+                time(&startzeit);
+                schaltjahr1();
+                time(&endzeit);
+                printf("%f\n",difftime(endzeit,startzeit));
+                time(&startzeit);
+                schaltjahr2();
+                time(&endzeit);
+                printf("%f\n",difftime(endzeit,startzeit));
+                return 0;
+            }
