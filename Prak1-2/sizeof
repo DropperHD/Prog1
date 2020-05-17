@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    printf("Int ist %zd lang\n", sizeof(int));
+    printf("Signed Int ist %zd lang\n", sizeof(signed int));
+    printf("Unsigned Int ist %zd lang\n", sizeof(unsigned int));
+    printf("Char ist %zd lang\n", sizeof(char));
+    printf("Signed Char ist %zd lang\n", sizeof(signed char));
+    printf("Unsigned Char ist %zd lang\n", sizeof(unsigned char));
+    printf("Short ist %zd lang\n", sizeof(short));
+    printf("Signed Short ist %zd lang\n", sizeof(signed short));
+    printf("Unsigned Short ist %zd lang\n", sizeof(unsigned short));
+    printf("Long ist %zd lang\n", sizeof(long));
+    printf("Signed Long ist %zd lang\n", sizeof(signed long));
+    printf("Unsigned Long ist %zd lang\n", sizeof(unsigned long));
+    printf("Float ist %zd lang\n", sizeof(float));
+    printf("Double ist %zd lang\n", sizeof(double));
+    printf("Long Double ist %zd lang\n", sizeof(long double));
+    return 0;
+}
